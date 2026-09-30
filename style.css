@@ -1,0 +1,336 @@
+/* ================= GENERAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    height: 80px;
+
+    background: #263b5a;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 60px;
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+    color: white;
+
+    font-size: 28px;
+
+    font-weight: bold;
+}
+
+
+/* ================= NAVIGATION ================= */
+
+.nav-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #36b5e8;
+}
+
+
+/* ================= NOTIFICATION ================= */
+
+.notification {
+    position: relative;
+}
+
+
+/* Notification Button */
+
+#notificationBtn {
+    position: relative;
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    padding: 5px;
+}
+
+
+/* Notification Count */
+
+#notificationCount {
+    position: absolute;
+
+    top: -5px;
+
+    right: -8px;
+
+    background: red;
+
+    color: white;
+
+    width: 20px;
+
+    height: 20px;
+
+    border-radius: 50%;
+
+    font-size: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* ================= NOTIFICATION PANEL ================= */
+
+.notification-panel {
+
+    display: none;
+
+    position: absolute;
+
+    top: 45px;
+
+    right: 0;
+
+    width: 360px;
+
+    max-height: 450px;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+
+    color: #333;
+
+    z-index: 1000;
+}
+
+
+/* Notification Header */
+
+.notification-header {
+
+    padding: 18px;
+
+    border-bottom: 1px solid #ddd;
+
+}
+
+.notification-header h3 {
+
+    font-size: 20px;
+
+}
+
+
+/* ================= NOTIFICATION ITEM ================= */
+
+.notification-item {
+
+    padding: 16px;
+
+    border-bottom: 1px solid #eee;
+
+    transition: background 0.2s;
+}
+
+.notification-item:hover {
+
+    background: #f7f9fc;
+}
+
+
+/* Title */
+
+.notification-item strong {
+
+    display: block;
+
+    font-size: 16px;
+
+    margin-bottom: 6px;
+}
+
+
+/* Message */
+
+.notification-item p {
+
+    font-size: 14px;
+
+    color: #666;
+
+    margin-bottom: 6px;
+}
+
+
+/* Time */
+
+.notification-item small {
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+
+/* ================= READ BUTTON ================= */
+
+.read-btn {
+
+    margin-top: 10px;
+
+    padding: 6px 10px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background: #263b5a;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 12px;
+}
+
+.read-btn:hover {
+
+    background: #36b5e8;
+}
+
+
+/* ================= NO NOTIFICATIONS ================= */
+
+.no-notifications {
+
+    display: none;
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #888;
+}
+
+
+/* ================= QUICK GUIDE ================= */
+
+.quick-guide {
+
+    padding: 10px 18px;
+
+    border: 2px solid #36b5e8;
+
+    border-radius: 25px;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.quick-guide:hover {
+
+    background: #36b5e8;
+}
+
+
+/* ================= MAIN CONTENT ================= */
+
+.main-content {
+
+    padding: 80px;
+
+    text-align: center;
+}
+
+.main-content h1 {
+
+    margin-bottom: 15px;
+}
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        display: none;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .quick-guide {
+        display: none;
+    }
+
+    .notification-panel {
+        position: fixed;
+
+        top: 70px;
+        left: 10px;
+        right: 10px;
+
+        width: auto;
+
+        max-height: 70vh;
+    }
+
+}
