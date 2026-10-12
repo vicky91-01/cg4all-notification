@@ -1,41 +1,49 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CG4ALL - Learning Library</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <!-- ================= NAVBAR ================= -->
+
     <nav class="navbar">
-        <a href="#home" class="logo">CG4<span>ALL</span></a>
+
+        <a href="#home" class="logo">
+            CG4<span>ALL</span>
+        </a>
 
         <div class="nav-links">
+
             <a href="#home">Home</a>
             <a href="#desktop">Desktop</a>
             <a href="#services">Services</a>
-            <a href="#library" class="nav-active">Library</a>
+            <a href="#library" class="active">Library</a>
             <a href="#join">Join Us</a>
             <a href="#contact">Contact Us</a>
 
-            <!-- Notification -->
+            <!-- NOTIFICATION -->
+
             <div class="notification">
-                <button id="notificationBtn" aria-label="Notifications"
-                        aria-expanded="false">
+
+                <button id="notificationBtn" aria-label="Notifications">
                     🔔
-                    <span id="notificationCount">3</span>
+                    <span id="notificationCount">0</span>
                 </button>
 
                 <div id="notificationPanel" class="notification-panel">
+
                     <div class="notification-header">
                         <h3>Notifications</h3>
-                        <button id="markAllRead" class="mark-all-btn">
-                            Mark all read
-                        </button>
+                        <button id="clearNotifications">Clear all</button>
                     </div>
 
                     <div id="notificationList"></div>
@@ -43,344 +51,840 @@
                     <div id="noNotifications" class="no-notifications">
                         No notifications
                     </div>
+
                 </div>
+
             </div>
 
-            <button class="quick-guide"
-                    onclick="document.getElementById('library').scrollIntoView({behavior:'smooth'})">
+            <!-- QUICK GUIDE -->
+
+            <button class="quick-guide" id="quickGuideBtn">
                 Quick Guide
             </button>
+
         </div>
+
     </nav>
 
+
     <!-- ================= MAIN CONTENT ================= -->
+
     <main id="home">
-        <section class="welcome-section">
-            <span class="welcome-badge">A Trusted Platform for Learning & Solutions</span>
-            <h1>Welcome to <span>CG4ALL</span></h1>
-            <p>Explore our latest courses, services, and learning resources.</p>
-        </section>
 
-        <!-- Existing featured video -->
-        <section class="video-section">
-            <h2>Featured Video</h2>
+        <!-- ================= LIBRARY HERO ================= -->
 
-            <div class="video-container">
-                <iframe
-                    src="https://www.youtube.com/embed/ptAiVYJCRNk"
-                    title="CG4ALL Featured Video"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-            </div>
+        <section class="library-hero" id="library">
 
-            <p class="video-note">
-                Watch the featured CG4ALL video above.
-            </p>
-        </section>
-    </main>
+            <div class="hero-container">
 
-    <!-- ================= LIBRARY SECTION ================= -->
-    <section class="library-section" id="library">
+                <div class="hero-content">
 
-        <div class="library-container">
+                    <span class="hero-tag">
+                        LEARN · PRACTICE · GROW
+                    </span>
 
-            <!-- Hero -->
-            <div class="library-hero">
-                <div class="library-hero-content">
-                    <span class="library-tag">LEARN · PRACTICE · GROW</span>
-
-                    <h2>Your Learning <span>Library</span></h2>
+                    <h1>
+                        Your Learning <span>Library</span>
+                    </h1>
 
                     <p>
-                        Explore programming, design, technology, and career
-                        resources — all in one place.
+                        Explore programming, design, technology,
+                        and career resources — all in one place.
                     </p>
 
-                    <form class="library-search" id="librarySearchForm">
+                    <!-- SEARCH -->
+
+                    <form id="librarySearchForm" class="search-box">
+
                         <span class="search-icon">⌕</span>
-                        <input type="search" id="librarySearch"
-                               placeholder="Search courses, topics, or skills..."
-                               aria-label="Search library resources">
-                        <button type="submit">Search</button>
+
+                        <input
+                            type="search"
+                            id="librarySearch"
+                            placeholder="Search courses, topics, or skills..."
+                            autocomplete="off"
+                        >
+
+                        <button type="submit">
+                            Search
+                        </button>
+
                     </form>
+
+                    <p id="searchFeedback" class="search-feedback"
+                       aria-live="polite"></p>
+
                 </div>
 
-                <div class="hero-illustration" aria-hidden="true">
-                    <div class="book-stack">
-                        <div class="book book-one">Programming</div>
-                        <div class="book book-two">Web Development</div>
-                        <div class="book book-three">Data Science</div>
-                        <div class="book book-four">Design</div>
-                        <div class="book book-five">Career Growth</div>
+
+                <!-- HERO ILLUSTRATION -->
+
+                <div class="hero-illustration">
+
+                    <div class="books">
+
+                        <div class="book book-one">
+                            Programming
+                        </div>
+
+                        <div class="book book-two">
+                            Web Development
+                        </div>
+
+                        <div class="book book-three">
+                            Data Science
+                        </div>
+
+                        <div class="book book-four">
+                            Design
+                        </div>
+
+                        <div class="book book-five">
+                            Career Growth
+                        </div>
+
                     </div>
 
                     <div class="laptop">
+
                         <div class="laptop-screen">
-                            <strong>Learn<br>Build<br>Grow</strong>
+
+                            <h2>
+                                Learn<br>
+                                Build<br>
+                                Grow
+                            </h2>
+
                             <span></span>
+
                         </div>
+
                         <div class="laptop-base"></div>
+
                     </div>
-                </div>
-            </div>
 
-            <!-- Category filters -->
-            <div class="library-categories" aria-label="Resource categories">
-                <button class="library-filter active" data-category="all">
-                    <span>▦</span> All Resources
-                </button>
-                <button class="library-filter" data-category="programming">
-                    <span>&lt;/&gt;</span> Programming
-                </button>
-                <button class="library-filter" data-category="web">
-                    <span>▣</span> Web Development
-                </button>
-                <button class="library-filter" data-category="data">
-                    <span>▥</span> Data Science &amp; AI
-                </button>
-                <button class="library-filter" data-category="design">
-                    <span>◉</span> Design
-                </button>
-                <button class="library-filter" data-category="cloud">
-                    <span>☁</span> Cloud &amp; DevOps
-                </button>
-            </div>
-
-            <!-- Resource heading -->
-            <div class="library-title-row">
-                <div>
-                    <h3>Explore the Library</h3>
-                    <p>Handpicked resources to build practical skills.</p>
                 </div>
 
-                <label class="sort-control">
-                    <span>Sort by</span>
-                    <select id="librarySort">
-                        <option value="popular">Most Popular</option>
-                        <option value="az">Name: A–Z</option>
-                        <option value="beginner">Beginner First</option>
-                    </select>
-                </label>
             </div>
 
-            <!-- Resource cards -->
-            <div class="library-grid" id="libraryGrid">
+        </section>
 
-                <article class="library-card"
-                    data-category="programming"
-                    data-level="beginner"
-                    data-title="Java Programming"
-                    data-popular="1">
 
-                    <div class="resource-thumb thumb-java">
-                        <span class="language-mark">♨</span>
-                        <div class="thumb-code">class Java {<br>&nbsp; Learn();<br>}</div>
-                        <span class="thumb-label">Programming</span>
-                    </div>
+        <!-- ================= LIBRARY SECTION ================= -->
 
-                    <div class="resource-content">
-                        <h4>Java Programming</h4>
-                        <p>Learn core Java concepts with hands-on examples, exercises, and real-world projects.</p>
+        <section class="library-section">
 
-                        <div class="resource-meta">
-                            <span class="level beginner-level">▮ Beginner</span>
-                            <span>▤ 12 lessons</span>
-                        </div>
+            <div class="container">
 
-                        <a href="#library" class="resource-link">Explore Resource →</a>
-                    </div>
-                </article>
+                <!-- CATEGORY FILTERS -->
 
-                <article class="library-card"
-                    data-category="web"
-                    data-level="beginner"
-                    data-title="Web Development"
-                    data-popular="2">
+                <div class="library-filters">
 
-                    <div class="resource-thumb thumb-web">
-                        <div class="web-window">
-                            <div class="window-dots">● ● ●</div>
-                            <div class="web-logos">
-                                <span>5</span><span>3</span><span>JS</span>
-                            </div>
-                        </div>
-                        <span class="thumb-label">Development</span>
-                    </div>
+                    <button
+                        class="library-filter active"
+                        data-category="all">
 
-                    <div class="resource-content">
-                        <h4>Web Development</h4>
-                        <p>Learn HTML, CSS, JavaScript, and modern tools to build real-world web applications.</p>
+                        ▦ All Resources
 
-                        <div class="resource-meta">
-                            <span class="level beginner-level">▮ Beginner</span>
-                            <span>▤ 18 lessons</span>
-                        </div>
+                    </button>
 
-                        <a href="#library" class="resource-link">Explore Resource →</a>
-                    </div>
-                </article>
+                    <button
+                        class="library-filter"
+                        data-category="programming">
 
-                <article class="library-card"
-                    data-category="data"
-                    data-level="intermediate"
-                    data-title="Python for Data Science"
-                    data-popular="3">
+                        &lt;/&gt; Programming
 
-                    <div class="resource-thumb thumb-python">
-                        <div class="python-mark">Py</div>
-                        <div class="chart-art"><span></span><span></span><span></span><span></span></div>
-                        <span class="thumb-label">Data Science &amp; AI</span>
-                    </div>
+                    </button>
 
-                    <div class="resource-content">
-                        <h4>Python for Data Science</h4>
-                        <p>Work with Python, Pandas, NumPy, and data visualization to discover insights.</p>
+                    <button
+                        class="library-filter"
+                        data-category="development">
 
-                        <div class="resource-meta">
-                            <span class="level intermediate-level">▮ Intermediate</span>
-                            <span>▤ 10 lessons</span>
-                        </div>
+                        ▣ Web Development
 
-                        <a href="#library" class="resource-link">Explore Resource →</a>
-                    </div>
-                </article>
+                    </button>
 
-                <article class="library-card"
-                    data-category="design"
-                    data-level="beginner"
-                    data-title="UI UX Design Fundamentals"
-                    data-popular="4">
+                    <button
+                        class="library-filter"
+                        data-category="data">
 
-                    <div class="resource-thumb thumb-design">
-                        <div class="design-window">
-                            <div class="design-sidebar"></div>
-                            <div class="design-shapes">
-                                <span></span><span></span><span></span>
-                                <i></i><i></i><i></i>
-                            </div>
-                        </div>
-                        <span class="thumb-label">Design</span>
-                    </div>
+                        ▥ Data Science & AI
 
-                    <div class="resource-content">
-                        <h4>UI/UX Design Fundamentals</h4>
-                        <p>Learn interface design principles and create attractive, user-friendly experiences.</p>
+                    </button>
 
-                        <div class="resource-meta">
-                            <span class="level beginner-level">▮ Beginner</span>
-                            <span>▤ 8 lessons</span>
-                        </div>
+                    <button
+                        class="library-filter"
+                        data-category="design">
 
-                        <a href="#library" class="resource-link">Explore Resource →</a>
-                    </div>
-                </article>
+                        ◉ Design
 
-                <article class="library-card"
-                    data-category="cloud"
-                    data-level="intermediate"
-                    data-title="Cloud Computing and DevOps"
-                    data-popular="5">
+                    </button>
 
-                    <div class="resource-thumb thumb-cloud">
-                        <span class="cloud-symbol">☁</span>
-                        <strong>Cloud &amp; DevOps</strong>
-                        <span class="thumb-label">Infrastructure</span>
-                    </div>
+                    <button
+                        class="library-filter"
+                        data-category="cloud">
 
-                    <div class="resource-content">
-                        <h4>Cloud Computing &amp; DevOps</h4>
-                        <p>Explore cloud infrastructure, deployment, version control, and DevOps fundamentals.</p>
+                        ☁ Cloud & DevOps
 
-                        <div class="resource-meta">
-                            <span class="level intermediate-level">▮ Intermediate</span>
-                            <span>▤ 14 lessons</span>
-                        </div>
+                    </button>
 
-                        <a href="#library" class="resource-link">Explore Resource →</a>
-                    </div>
-                </article>
+                </div>
 
-                <article class="library-card"
-                    data-category="programming"
-                    data-level="beginner"
-                    data-title="C++ Programming"
-                    data-popular="6">
 
-                    <div class="resource-thumb thumb-cpp">
-                        <div class="cpp-mark">C++</div>
-                        <div class="cpp-code">&lt;/&gt;</div>
-                        <span class="thumb-label">Programming</span>
-                    </div>
+                <!-- SECTION HEADING AND SORT -->
 
-                    <div class="resource-content">
-                        <h4>C++ Programming</h4>
-                        <p>Build a strong foundation in C++, problem-solving, and programming logic.</p>
+                <div class="section-heading">
 
-                        <div class="resource-meta">
-                            <span class="level beginner-level">▮ Beginner</span>
-                            <span>▤ 15 lessons</span>
-                        </div>
-
-                        <a href="#library" class="resource-link">Explore Resource →</a>
-                    </div>
-                </article>
-
-            </div>
-
-            <p id="libraryEmpty" class="library-empty" hidden>
-                No resources found. Try another search or category.
-            </p>
-
-            <!-- Learning paths -->
-            <div class="learning-paths">
-                <div class="paths-heading">
                     <div>
-                        <h3>Popular Learning Paths</h3>
-                        <p>Structured paths to help you go from beginner to job-ready.</p>
+
+                        <h2>Explore the Library</h2>
+
+                        <p>
+                            Handpicked resources to build practical skills.
+                        </p>
+
                     </div>
-                    <a href="#learning-paths">View all learning paths →</a>
+
+                    <div class="sort-box">
+
+                        <label for="librarySort">Sort by</label>
+
+                        <select id="librarySort">
+
+                            <option value="popular">
+                                Most Popular
+                            </option>
+
+                            <option value="az">
+                                Name (A-Z)
+                            </option>
+
+                            <option value="za">
+                                Name (Z-A)
+                            </option>
+
+                            <option value="beginner">
+                                Beginner First
+                            </option>
+
+                            <option value="lessons">
+                                Most Lessons
+                            </option>
+
+                        </select>
+
+                    </div>
+
                 </div>
 
-                <div class="learning-path-grid" id="learning-paths">
-                    <a href="#library" class="learning-path">
-                        <span class="path-icon">&lt;/&gt;</span>
-                        <div>
-                            <h4>Start with Programming</h4>
-                            <p>Build a strong foundation in programming.</p>
-                        </div>
-                        <span class="path-arrow">›</span>
-                    </a>
 
-                    <a href="#library" class="learning-path">
-                        <span class="path-icon path-blue">▣</span>
-                        <div>
-                            <h4>Build Your First Website</h4>
-                            <p>From basics to a complete project.</p>
-                        </div>
-                        <span class="path-arrow">›</span>
-                    </a>
+                <!-- RESULTS -->
 
-                    <a href="#library" class="learning-path">
-                        <span class="path-icon path-pink">▥</span>
-                        <div>
-                            <h4>Explore AI &amp; Data</h4>
-                            <p>Learn data analysis and machine learning.</p>
-                        </div>
-                        <span class="path-arrow">›</span>
-                    </a>
+                <div class="result-info">
+
+                    <span id="resultCount"></span>
+
+                    <button id="resetLibrary">
+                        Reset Filters ↻
+                    </button>
+
                 </div>
+
+
+                <!-- RESOURCE CARDS -->
+
+                <div class="library-grid" id="libraryGrid">
+
+
+                    <!-- CARD 1: JAVA -->
+
+                    <article
+                        class="library-card"
+                        data-title="Java Programming"
+                        data-category="programming"
+                        data-description="Learn core Java concepts with hands-on examples, exercises, and real-world projects."
+                        data-topics="java programming oop classes objects inheritance coding"
+                        data-level="beginner"
+                        data-lessons="12"
+                        data-popular="95">
+
+                        <div class="card-image java-image">
+
+                            <span class="category-badge">
+                                Programming
+                            </span>
+
+                            <div class="code-art">
+                                <span>☕</span>
+                                <div>
+                                    <p>class Java {</p>
+                                    <p>&nbsp;&nbsp;Learn();</p>
+                                    <p>}</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>Java Programming</h3>
+
+                            <p class="card-description">
+                                Learn core Java concepts with hands-on
+                                examples, exercises, and real-world projects.
+                            </p>
+
+                            <div class="card-meta">
+
+                                <span class="level beginner">
+                                    ▮ Beginner
+                                </span>
+
+                                <span class="lessons">
+                                    ▢ 12 lessons
+                                </span>
+
+                            </div>
+
+                            <button class="explore-btn" type="button">
+                                Explore Resource →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 2: WEB DEVELOPMENT -->
+
+                    <article
+                        class="library-card"
+                        data-title="Web Development"
+                        data-category="development"
+                        data-description="Learn HTML CSS JavaScript and modern tools to build real-world responsive websites."
+                        data-topics="html css javascript frontend web website development"
+                        data-level="beginner"
+                        data-lessons="18"
+                        data-popular="90">
+
+                        <div class="card-image web-image">
+
+                            <span class="category-badge">
+                                Development
+                            </span>
+
+                            <div class="browser-art">
+
+                                <div class="browser-dots">
+                                    ● ● ●
+                                </div>
+
+                                <div class="tech-icons">
+                                    <span>5</span>
+                                    <span>3</span>
+                                    <span>JS</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>Web Development</h3>
+
+                            <p class="card-description">
+                                Learn HTML, CSS, JavaScript and modern
+                                tools to build real-world web applications.
+                            </p>
+
+                            <div class="card-meta">
+
+                                <span class="level beginner">
+                                    ▮ Beginner
+                                </span>
+
+                                <span class="lessons">
+                                    ▢ 18 lessons
+                                </span>
+
+                            </div>
+
+                            <button class="explore-btn" type="button">
+                                Explore Resource →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 3: PYTHON DATA SCIENCE -->
+
+                    <article
+                        class="library-card"
+                        data-title="Python for Data Science"
+                        data-category="data"
+                        data-description="Work with data using Python Pandas NumPy and visualize insights with real projects."
+                        data-topics="python pandas numpy machine learning data analysis visualization AI"
+                        data-level="intermediate"
+                        data-lessons="10"
+                        data-popular="98">
+
+                        <div class="card-image python-image">
+
+                            <span class="category-badge">
+                                Data Science & AI
+                            </span>
+
+                            <div class="python-art">
+
+                                <span>🐍</span>
+
+                                <div class="chart-art">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>Python for Data Science</h3>
+
+                            <p class="card-description">
+                                Work with data using Python, Pandas,
+                                NumPy, and visualise insights with projects.
+                            </p>
+
+                            <div class="card-meta">
+
+                                <span class="level intermediate">
+                                    ▮ Intermediate
+                                </span>
+
+                                <span class="lessons">
+                                    ▢ 10 lessons
+                                </span>
+
+                            </div>
+
+                            <button class="explore-btn" type="button">
+                                Explore Resource →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 4: UI UX DESIGN -->
+
+                    <article
+                        class="library-card"
+                        data-title="UI UX Design Fundamentals"
+                        data-category="design"
+                        data-description="Learn UI UX design principles and create beautiful user interfaces and improve user experience."
+                        data-topics="ui ux figma design wireframe prototype user experience"
+                        data-level="beginner"
+                        data-lessons="8"
+                        data-popular="88">
+
+                        <div class="card-image design-image">
+
+                            <span class="category-badge">
+                                Design
+                            </span>
+
+                            <div class="design-art">
+
+                                <div class="design-sidebar"></div>
+
+                                <div class="design-elements">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>UI/UX Design Fundamentals</h3>
+
+                            <p class="card-description">
+                                Learn the principles of UI/UX design,
+                                create beautiful interfaces and improve
+                                user experience.
+                            </p>
+
+                            <div class="card-meta">
+
+                                <span class="level beginner">
+                                    ▮ Beginner
+                                </span>
+
+                                <span class="lessons">
+                                    ▢ 8 lessons
+                                </span>
+
+                            </div>
+
+                            <button class="explore-btn" type="button">
+                                Explore Resource →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 5: CLOUD -->
+
+                    <article
+                        class="library-card"
+                        data-title="Cloud Computing and DevOps"
+                        data-category="cloud"
+                        data-description="Learn cloud computing Docker CI CD Linux and deployment fundamentals."
+                        data-topics="cloud AWS docker devops linux CI CD deployment"
+                        data-level="intermediate"
+                        data-lessons="15"
+                        data-popular="80">
+
+                        <div class="card-image cloud-image">
+
+                            <span class="category-badge">
+                                Cloud & DevOps
+                            </span>
+
+                            <div class="cloud-art">
+                                <span>☁</span>
+                                <p>BUILD · DEPLOY · SCALE</p>
+                            </div>
+
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>Cloud Computing & DevOps</h3>
+
+                            <p class="card-description">
+                                Learn cloud platforms, Docker, CI/CD,
+                                Linux and deployment fundamentals.
+                            </p>
+
+                            <div class="card-meta">
+
+                                <span class="level intermediate">
+                                    ▮ Intermediate
+                                </span>
+
+                                <span class="lessons">
+                                    ▢ 15 lessons
+                                </span>
+
+                            </div>
+
+                            <button class="explore-btn" type="button">
+                                Explore Resource →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CARD 6: PYTHON -->
+
+                    <article
+                        class="library-card"
+                        data-title="Python Programming Basics"
+                        data-category="programming"
+                        data-description="Start learning Python programming variables loops functions and object oriented programming."
+                        data-topics="python programming loops functions variables coding"
+                        data-level="beginner"
+                        data-lessons="20"
+                        data-popular="93">
+
+                        <div class="card-image python-basic-image">
+
+                            <span class="category-badge">
+                                Programming
+                            </span>
+
+                            <div class="basic-art">
+                                <span>Py</span>
+                                <p>print("Hello World")</p>
+                            </div>
+
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>Python Programming Basics</h3>
+
+                            <p class="card-description">
+                                Start learning Python with variables,
+                                loops, functions and practical exercises.
+                            </p>
+
+                            <div class="card-meta">
+
+                                <span class="level beginner">
+                                    ▮ Beginner
+                                </span>
+
+                                <span class="lessons">
+                                    ▢ 20 lessons
+                                </span>
+
+                            </div>
+
+                            <button class="explore-btn" type="button">
+                                Explore Resource →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- NO RESULTS -->
+
+                <div id="libraryEmpty" class="empty-state" hidden>
+
+                    <div>🔍</div>
+
+                    <h3>No Resources Found</h3>
+
+                    <p>
+                        Try searching with another keyword or selecting
+                        a different category.
+                    </p>
+
+                    <button id="emptyReset">
+                        View All Resources
+                    </button>
+
+                </div>
+
+
+                <!-- POPULAR LEARNING PATHS -->
+
+                <section class="learning-paths">
+
+                    <div class="paths-heading">
+
+                        <div>
+                            <h2>Popular Learning Paths</h2>
+
+                            <p>
+                                Structured paths to help you go from
+                                beginner to job-ready.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="paths-grid">
+
+                        <a href="#library"
+                           class="path-card"
+                           data-path-category="programming">
+
+                            <div class="path-icon purple">
+                                &lt;/&gt;
+                            </div>
+
+                            <div>
+                                <h3>Start with Programming</h3>
+                                <p>Build a strong foundation in programming.</p>
+                            </div>
+
+                            <span>›</span>
+
+                        </a>
+
+
+                        <a href="#library"
+                           class="path-card"
+                           data-path-category="development">
+
+                            <div class="path-icon blue">
+                                💻
+                            </div>
+
+                            <div>
+                                <h3>Build Your First Website</h3>
+                                <p>From basics to a complete project.</p>
+                            </div>
+
+                            <span>›</span>
+
+                        </a>
+
+
+                        <a href="#library"
+                           class="path-card"
+                           data-path-category="data">
+
+                            <div class="path-icon pink">
+                                ▥
+                            </div>
+
+                            <div>
+                                <h3>Explore AI & Data</h3>
+                                <p>Learn data analysis and machine learning.</p>
+                            </div>
+
+                            <span>›</span>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
             </div>
+
+        </section>
+
+
+        <!-- ================= EXISTING FEATURED VIDEO ================= -->
+
+        <section class="video-section" id="desktop">
+
+            <div class="container">
+
+                <h2>Featured Video</h2>
+
+                <div class="video-container">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/ptAiVYJCRNk"
+                        title="CG4ALL Featured Video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+                <p class="video-note">
+                    Watch the featured CG4ALL video above.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= EXISTING PAGE LINKS ================= -->
+
+        <section id="services" class="simple-section">
+            <h2>Our Services</h2>
+            <p>Explore the services offered by CG4ALL.</p>
+        </section>
+
+        <section id="join" class="simple-section">
+            <h2>Join CG4ALL</h2>
+            <p>Learn, practice and grow with CG4ALL.</p>
+        </section>
+
+        <section id="contact" class="simple-section">
+            <h2>Contact Us</h2>
+            <p>Connect with the CG4ALL team.</p>
+        </section>
+
+    </main>
+
+
+    <!-- ================= RESOURCE DETAILS MODAL ================= -->
+
+    <div class="modal-overlay" id="resourceModal" hidden>
+
+        <div class="resource-modal">
+
+            <button class="modal-close" id="closeResourceModal"
+                    aria-label="Close">
+                ×
+            </button>
+
+            <span class="modal-category" id="modalCategory"></span>
+
+            <h2 id="modalTitle"></h2>
+
+            <p id="modalDescription"></p>
+
+            <div class="modal-info">
+
+                <span id="modalLevel"></span>
+
+                <span id="modalLessons"></span>
+
+            </div>
+
+            <button id="modalDone" class="modal-done">
+                Close
+            </button>
 
         </div>
-    </section>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="footer" id="contact">
-        <p>© 2026 CG4ALL. Upskill with Intent.</p>
-    </footer>
+    </div>
+
+
+    <!-- ================= QUICK GUIDE MODAL ================= -->
+
+    <div class="modal-overlay" id="guideModal" hidden>
+
+        <div class="resource-modal">
+
+            <button class="modal-close" id="closeGuideModal">
+                ×
+            </button>
+
+            <h2>CG4ALL Quick Guide</h2>
+
+            <p>
+                1. Search for courses using the search bar.
+            </p>
+
+            <p>
+                2. Select a category to filter resources.
+            </p>
+
+            <p>
+                3. Use Sort By to organize your resources.
+            </p>
+
+            <p>
+                4. Click Explore Resource to view its details.
+            </p>
+
+            <button class="modal-done" id="guideDone">
+                Got it
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
 
     <script src="script.js"></script>
+
 </body>
 </html>
